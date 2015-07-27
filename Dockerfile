@@ -16,9 +16,10 @@ RUN git clone https://github.com/hangoutsbot/hangoutsbot.git
 RUN cd hangoutsbot && pip3 install -r requirements.txt
 
 RUN mkdir /plugins && touch /plugins/.keep
+RUN mkdir /sinks && touch /sinks/.keep
 COPY start.sh /
 
-VOLUME ["/root/.local/share/hangupsbot", "/plugins"]
+VOLUME ["/root/.local/share/hangupsbot", "/plugins", "/sinks"]
 WORKDIR /hangoutsbot/hangupsbot
 
 CMD ["/start.sh"]
